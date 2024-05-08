@@ -37,7 +37,7 @@ func main() {
 		millSec := item.StartMilliSec % 1000
 		sec := item.StartMilliSec / 1000 % 60
 		min := item.StartMilliSec / 1000 / 60
-		line := fmt.Sprintf("[%v:%v.%v]%v", min, sec, millSec, strings.Join(item.Transcript, " "))
+		line := fmt.Sprintf("[%02d:%02d.%03v]%v", min, sec, millSec, strings.Join(item.Transcript, " "))
 		lines = append(lines, line)
 	}
 	lrcContent := strings.Join(lines, "\n")

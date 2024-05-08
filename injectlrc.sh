@@ -2,6 +2,6 @@
 dic=`pwd`
 for file in "$dic"/*.txt; do
     if [ -f "$file" ]; then
-        ffmpeg -i $file.mp3 -metadata LYRICS="$(<$file.vvt.lrc)" $file.mp3.mp3
+        ffmpeg -i $file.mp3 -metadata LYRICS="$(<$file.vtt.lrc)" $file.mp3.mp3
     fi
 done

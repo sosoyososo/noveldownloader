@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	bi24cc "noveldownload/bi24.cc"
 	mbiqukevip "noveldownload/m.biquke.vip"
 	"os"
 )
@@ -16,6 +17,7 @@ type Downloader interface {
 var (
 	downloaderList = map[string]Downloader{
 		"m.biquke.vip": mbiqukevip.Downloader{},
+		"bi24.cc":      bi24cc.Downloader{},
 	}
 )
 

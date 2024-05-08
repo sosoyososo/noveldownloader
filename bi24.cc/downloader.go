@@ -25,10 +25,22 @@ func (d Downloader) ChapterURLList(entryURL string) ([]string, error) {
 		return []string{}, err
 	}
 	chapterURLs := doc.Find(".listmain dd a").Map(func(i int, sel *goquery.Selection) string {
+		if rel, _ := sel.Attr("rel"); rel == "nofollow" {
+			return ""
+		}
 		str, _ := sel.Attr("href")
 		return str
 	})
-	return chapterURLs, nil
+
+	retUrls := []string{}
+	for _, url := range chapterURLs {
+		if len(url) <= 0 {
+			continue
+		}
+		retUrls = append(retUrls, url)
+	}
+
+	return retUrls, nil
 }
 
 func (d Downloader) ChapterDetail(url string) (string, error) {

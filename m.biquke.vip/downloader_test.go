@@ -1,6 +1,9 @@
 package mbiqukevip
 
-import "testing"
+import (
+	"log"
+	"testing"
+)
 
 func TestDownloadChapters(t *testing.T) {
 	urls, err := Downloader{}.ChapterURLList("https://m.biquke.vip/chapters/23557?sort=1&page=1")
@@ -15,5 +18,5 @@ func TestDownloadChapterContent(t *testing.T) {
 	if nil != err {
 		t.Error(err)
 	}
-	t.Log(content)
+	log.Println(content)
 }

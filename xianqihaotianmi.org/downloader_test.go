@@ -14,7 +14,7 @@ func TestDownloadChapters(t *testing.T) {
 }
 
 func TestDownloadChapterContent(t *testing.T) {
-	content, err := Downloader{}.ChapterDetail("http://www.xianqihaotianmi.org/read/124728_51450703.html")
+	content, err := Downloader{}.ChapterDetail("http://www.xianqihaotianmi.org/read/124728_52062430.html")
 	if nil != err {
 		t.Error(err)
 	}

@@ -51,7 +51,7 @@ func main() {
 		if nil != err {
 			log.Panicf("download chapter content fail %v", err)
 		}
-		if err := saveFile(content, fmt.Sprintf("./%v.txt", index)); nil != err {
+		if err := saveFile(content, fmt.Sprintf("./%v.txt", index+1)); nil != err {
 			log.Panicf("save chapter content fail %v", err)
 		}
 	}

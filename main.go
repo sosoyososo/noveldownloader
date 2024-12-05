@@ -26,8 +26,10 @@ var (
 func main() {
 	var entryUrl string
 	var downloaderType string
+	var skipCount int
 	flag.StringVar(&downloaderType, "downloader", "", "下载器的类型")
 	flag.StringVar(&entryUrl, "entry", "", "获取目录的入口地址")
+	flag.IntVar(&skipCount, "skip", 0, "跳过的章节数")
 	flag.Parse()
 
 	if len(entryUrl) <= 0 {
@@ -47,6 +49,9 @@ func main() {
 	}
 
 	for index, chapterURL := range chapters {
+		if index <= skipCount {
+			continue
+		}
 		content, err := downloader.ChapterDetail(chapterURL)
 		if nil != err {
 			log.Panicf("download chapter content fail %v", err)

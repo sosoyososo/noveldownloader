@@ -54,7 +54,7 @@ func main() {
 	}
 
 	for index, chapterURL := range chapters {
-		if index <= skipCount {
+		if index < skipCount {
 			continue
 		}
 		content, err := downloader.ChapterDetail(chapterURL)

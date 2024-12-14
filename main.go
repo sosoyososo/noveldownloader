@@ -8,6 +8,9 @@ import (
 	mbiqukevip "noveldownload/m.biquke.vip"
 	xianqihaotianmiorg "noveldownload/xianqihaotianmi.org"
 	"os"
+	"strings"
+
+	"golang.org/x/exp/maps"
 )
 
 type Downloader interface {
@@ -33,7 +36,8 @@ func main() {
 	flag.Parse()
 
 	if len(downloaderType) <= 0 {
-		log.Panicf("下载器类型")
+		infoStr := strings.Join(maps.Keys(downloaderList), " , ")
+		log.Panicf("下载器类型 " + infoStr)
 	}
 
 	if len(entryUrl) <= 0 {

@@ -32,11 +32,12 @@ func main() {
 	flag.IntVar(&skipCount, "skip", 0, "跳过的章节数")
 	flag.Parse()
 
-	if len(entryUrl) <= 0 {
-		log.Panicf("请输入入口地址")
-	}
 	if len(downloaderType) <= 0 {
 		log.Panicf("下载器类型")
+	}
+
+	if len(entryUrl) <= 0 {
+		log.Panicf("请输入入口地址")
 	}
 
 	downloader := downloaderList[downloaderType]
